@@ -15,18 +15,19 @@ defmodule TN do
     [hd(fileText), tl(fileText)]
   end
 
-#  Iterates the numbers list
+  #  Iterates the numbers list
   def loopNumbers(caseNumber, numberId, listOfNumbers, file) do
     if numberId > 0 do
       numberToWorkOn = hd(listOfNumbers)
       lengthOfNumber = String.length(numberToWorkOn)
       tidyNumber = isNumberTidy?(numberToWorkOn, lengthOfNumber, lengthOfNumber,1)
+      IO.binwrite file, "Case #" <> Integer.to_string(caseNumber) <> ": " <> tidyNumber <> "\n"
       loopNumbers(caseNumber+1,numberId-1,tl(listOfNumbers), file)
 
     end
   end
 
-#  Checks if the number is tidy starting from right to left
+  #  Checks if the number is tidy starting from right to left
   def isNumberTidy?(number,numOriginalLength, numberLength, numberOfChecks) do
     if numOriginalLength <= 1 do
       number
@@ -53,7 +54,7 @@ defmodule TN do
 
   end
 
-#  Adds 9s after the checked number
+  #  Adds 9s after the checked number
   def changeNumbersTo9(numberLength) do
     if numberLength > 0 do
       "9" <> changeNumbersTo9(numberLength-1)
