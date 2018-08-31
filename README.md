@@ -5,9 +5,9 @@ To run the program you need to have an input file on the root of the project cal
 <number_of_inputs></br>
 <number1></br>
 <number2></br>
-.</br>
-.</br>
-.</br>
+. </br>
+. </br>
+. </br>
 <numberN></br>
 
 # Compile the project
