@@ -1,7 +1,7 @@
 defmodule TN do
 
 
-  #Start Tidy
+  # Main function to start the program - it opens the file to read the input and the one to save the output
   def st do
     numberOfInputsAndList = getFileTextInformation()
     {:ok, file} = File.open "output.txt", [:write]
@@ -9,7 +9,7 @@ defmodule TN do
     File.close file
   end
 
-
+  # Gets the information from the input file and returns the list of numbers to work on tl(fileText) and the number of items hd(fileText)
   def getFileTextInformation do
     fileText = String.split(File.read!("input.txt"),"\n")
     [hd(fileText), tl(fileText)]
@@ -18,14 +18,9 @@ defmodule TN do
 #  Iterates the numbers list
   def loopNumbers(caseNumber, numberId, listOfNumbers, file) do
     if numberId > 0 do
-      #      newId = numberId-1
-      #      IO.puts hd(listOfNumbers)
       numberToWorkOn = hd(listOfNumbers)
       lengthOfNumber = String.length(numberToWorkOn)
       tidyNumber = isNumberTidy?(numberToWorkOn, lengthOfNumber, lengthOfNumber,1)
-      IO.puts "Tidy Number: " <> tidyNumber
-      IO.binwrite file, "Case #" <> Integer.to_string(caseNumber) <> ": " <> tidyNumber <> "\n"
-      #      IO.puts tidyNumber
       loopNumbers(caseNumber+1,numberId-1,tl(listOfNumbers), file)
 
     end
@@ -33,16 +28,10 @@ defmodule TN do
 
 #  Checks if the number is tidy starting from right to left
   def isNumberTidy?(number,numOriginalLength, numberLength, numberOfChecks) do
-    IO.puts "\nNumber: "<>number
-    IO.puts "Number Length: "<>Integer.to_string(numberLength)
-
     if numOriginalLength <= 1 do
-      IO.puts "Number" <> number
       number
     else
       if numberLength > 1 do
-        IO.puts String.to_integer(String.at(number,numberLength-1))
-        IO.puts String.to_integer(String.at(number,numberLength-2))
         if String.to_integer(String.at(number,numberLength-1)) >= String.to_integer(String.at(number,numberLength-2)) do
           isNumberTidy?(number, numOriginalLength, numberLength-1, numberOfChecks+1)
         else
@@ -58,7 +47,6 @@ defmodule TN do
 
         end
       else
-        IO.puts "New num:" <>  number
         number
       end
     end
