@@ -10,10 +10,16 @@ To run the program you need to have an input file on the root of the project cal
 .
 <numberN>
 
-To run the program follow this steps:
+# Compile the project
 
-  1.- Compile the project in the terminal: mix compile
-  2.- Run the project: iex -S mix
-  3.- Execute the main function: TN.st
+mix compile
+
+# Run the project
+
+iex -S mix
+
+# Execute
+
+TN.st
 
 
