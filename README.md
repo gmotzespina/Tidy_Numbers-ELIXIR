@@ -23,8 +23,6 @@ Small dataset
 Large dataset
 </br>
 1 ≤ N ≤ 1018.
-Sample
-
 # Compile the project
 
 ```
