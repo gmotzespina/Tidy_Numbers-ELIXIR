@@ -12,14 +12,19 @@ To run the program you need to have an input file on the root of the project cal
 
 # Compile the project
 
+```
 mix compile
+```
 
 # Run the project
 
+```
 iex -S mix
+```
 
 # Execute
 
+```
 TN.st
-
+```
 
